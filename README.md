@@ -80,8 +80,8 @@ cd prometheus_file_that_you_downloaded
 Go to http://localhost:9090/graph and you should see your prometheus graph UI running
 
 Under the queries you should now be able to access the following:
-user_input_idle_time
-avg_user_input_idle_time
+user_input_idle_time,<br />
+avg_user_input_idle_time,<br />
 user_w_idle_time
 
 
