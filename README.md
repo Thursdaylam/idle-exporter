@@ -84,6 +84,27 @@ user_input_idle_time,<br />
 avg_user_input_idle_time,<br />
 user_w_idle_time
 
+###Prometheus Operator
+To set up a minikube environment running prometheus operator and service monitor.
+
+```
+minikube start
+
+#Build docker image within minikube
+eval $(minikube docker-env)
+docker build -t idle_exporter/idle_exporter:0.1.0 . --network host
+
+#Adds custom resource definitions
+kubectl create -f ./custom_resource/
+
+#Deploy Idle-app, Service Monitors, Prometheus, Prometheus Operator
+kubectl create -f .
+
+#Set port forwarding and see graph at localhost:9090
+kubectl port-forward pod/prometheus-prometheus-0 -n monitoring 9090:9090
+```
+
+You should be able to see the idle metrics now!
 
 ### Notes
 This implementation is based of file modification times in /dev/pts as well as information from the w command.

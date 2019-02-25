@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: idle-app
+  labels:
+    team: frontend
+spec:
+  endpoints:
+    - port: metrics
+
+  selector:
+    matchLabels:
+      app: idle-app
+

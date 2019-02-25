@@ -115,7 +115,7 @@ def update_idle_w():
 
 if __name__ == '__main__':
     print('server starting')
-    start_http_server(3003)
+    start_http_server(8080)
     print('server started')
     while True:
         time.sleep(1)

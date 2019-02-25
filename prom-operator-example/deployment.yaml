@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: idle-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: idle-app
+    spec:
+      containers:
+      - name: idle-app
+        image: idle_exporter/idle_exporter:0.1.0
+        command: ["bash", "-c", "python ./idle_exporter.py"]
+        imagePullPolicy: Never
+        ports:
+        - name: metrics
+          containerPort: 8080
+

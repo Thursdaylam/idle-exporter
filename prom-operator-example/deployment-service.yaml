@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: idle-app
+  labels:
+    app: idle-app
+spec:
+  selector:
+  # Loadbalance traffic across Pods matching
+  # this label selector
+    app: idle-app
+  ports:
+  # Accept traffic sent to port 80
+  - name: metrics
+    port: 8080
+
